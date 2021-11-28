@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 if(!window.location.pathname === "/"){
-document.addEventListener('click', musicplay);
+//document.addEventListener('click', musicplay);
 }
 function musicplay() {
 
