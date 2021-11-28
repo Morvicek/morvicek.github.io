@@ -1,0 +1,102 @@
+@import url(https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap);
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: "Orbitron", sans-serif;
+    background:#0f0f0f;
+}
+.name{
+  color:#d9d9d9;
+  text-shadow:0 0 10px #c61cff,0 0 10px #d05cf7;
+  transition: 0.3s text-shadow ease-in-out;
+}
+.desc{
+  color:#a3a3a3;
+
+}
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  left:20px;
+  text-decoration: none;
+  border-radius: 50%;
+  white-space:nowrap;
+  color:whitesmoke;
+
+}
+.fac{
+  position: absolute;
+  top: 54%;
+  left: 47%;
+  transform: translate(-50%, -50%);
+}
+.fa:before{
+  transition: 0.3s;
+}
+
+.fa:hover{
+  color:#bdbdbd;
+  opacity:1;
+  text-shadow:0 0 10px #bdbdbd;
+  transition: 0.0s opacity ease-in-out;
+  transition: 0.0s text-shadow ease-in-out;
+}
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.namec {
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.avatar{
+  position: absolute;
+  top: 46%;
+  left: -29%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  border-top-left-radius: 50% 50%;
+  border-top-right-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  border-bottom-left-radius: 50% 50%;
+  box-shadow:0 0 10px #ff247b;
+}
+.footer .cropy{
+  text-decoration: none;
+  position: absolute;
+  bottom: 1%;
+  left: 2%;
+  color: #a3a3a3;
+  text-shadow:0 0 10px #bdbdbd;
+}
+
+@media only screen and (max-width: 800px) {
+  .avatar{
+    top: -50%;
+    left: 50%;
+  }
+  .namec{
+    position:absolute;
+    top:46%;
+    left:50%;
+    align-items: center;
+  }
+  .name{
+    position:relative;
+    left: 10px
+  }
+  .desc{
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .fa{
+    right: 10px;
+  }
+}
