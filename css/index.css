@@ -10,6 +10,10 @@ body {
   text-shadow:0 0 10px #c61cff,0 0 10px #d05cf7;
   transition: 0.3s text-shadow ease-in-out;
 }
+.na{
+  color:#d9d9d9;
+  animation: na 4s infinite;
+}
 .desc{
   color:#a3a3a3;
 
@@ -76,7 +80,38 @@ body {
   color: #a3a3a3;
   text-shadow:0 0 10px #bdbdbd;
 }
+@keyframes na{
+  10%{
+    text-shadow:0 0 10px #c61cff,0 0 10px #d05cf7;
+  }
+  20%{
 
+  }
+  30%{
+    text-shadow:0 0 10px #c61cff,0 0 10px #d05cf7;
+  }
+  35%{
+
+  }
+  40%{
+    text-shadow:0 0 10px #c61cff,0 0 10px #d05cf7;
+  }
+  50%{
+
+  }
+  60%{
+    text-shadow:0 0 10px #c61cff,0 0 10px #d05cf7;
+  }
+  80%{
+
+  }
+  90%{
+    text-shadow:0 0 10px #c61cff,0 0 10px #d05cf7;
+  }
+  100%{
+
+  }
+}
 @media only screen and (max-width: 800px) {
   .avatar{
     top: -50%;
@@ -89,6 +124,10 @@ body {
     align-items: center;
   }
   .name{
+    position:relative;
+    left: 10px
+  }
+  .na{
     position:relative;
     left: 10px
   }
