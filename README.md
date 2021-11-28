@@ -1,0 +1,1 @@
+brácho stránka more
