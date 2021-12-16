@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:site_name" content="Morvicek">
+	<meta content="Morvicek - Programmer, Gamer" property="og:description">
+    <title>Morvicek</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/game.css">
+  
+</head>
+<body>
+
+    <script src="js/game.js"></script>
+ <!-- hangman here -->
+    <div class="game.input">
+        <a class="word" id="hang">  +---+
+            |   |
+            O   |
+           /|\\\  |
+           / \\\  |
+                |
+          =========</a>
+        <a class="word" id="word"></a></br>
+        <a class="word" id="used letters"></a>
+        <input type="text" value="" onKeyDown="if(event.keyCode==13) wordguess(this, event);" size="20" id="endereco">
+        <button type="button" onclick="getWord()">New word</button>
+    </div>
+    </div>
+    <div class="footer">
+        <a id="cropy" class="cropy"></a>
+        <button type="button" onclick="playsong()">Play Music</button>
+    </div>
+</body>
+</html>
