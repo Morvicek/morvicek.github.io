@@ -20,8 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
         |
   =========
   `
-
-   
+    document.getElementById("status").innerHTML= "GAMESTATUS: Ingame; Loses: 0"
+    
+    getWord()
     
 })
 
@@ -83,13 +84,7 @@ const ac = [`
 =========
 `];
 
-const words = `ant baboon badger bat bear beaver camel cat clam cobra cougar 
-coyote crow deer dog donkey duck eagle ferret fox frog goat 
-goose hawk lion lizard llama mole monkey moose mouse mule newt 
-otter owl panda parrot pigeon python rabbit ram rat raven 
-rhino salmon seal shark sheep skunk sloth snake spider 
-stork swan tiger toad trout turkey turtle weasel whale wolf 
-wombat zebra `.split(" ")
+const words = `ant baboon badger bat bear beaver camel cat clam cobra cougar coyote crow deer dog donkey duck eagle ferret fox frog goat goose hawk lion lizard llama mole monkey moose mouse mule newt otter owl panda parrot pigeon python rabbit ram rat raven rhino salmon seal shark sheep skunk sloth snake spider stork swan tiger toad trout turkey turtle weasel whale wolf wombat zebra `.split(" ")
 
 var currentword = "";
 var splitword = "";
@@ -155,7 +150,8 @@ function guessletter(letter){
         miss()
     }
     if(currentword === word){
-        console.log("ez4ence")
+        document.getElementById("status").innerHTML= "GAMESTATUS: WIN; Loses: "+misscnt ? "GAMESTATUS: WIN; Loses: 0" : misscnt;
+
     }
 
 }
@@ -165,11 +161,27 @@ function anticheat(){
 }
 
 setInterval(anticheat, 600)
+var plaing = false;
+const trashe = ['./songs/downwitfsikness.mp3','./songs/club.mp3','./songs/spiral.mp3'];
+var audio = new Audio(trashe[Math.floor(Math.random()*trashe.length)]);
 
 function playsong(){
-    var audio = new Audio('./songs/downwitfsikness.mp3');
+    
+    audio.src = trashe[Math.floor(Math.random()*trashe.length)]
+    audio.load()
     audio.play();
-    audio.volume = "1000"
+/*
+    if(plaing === true){
+        audio.src = trashe[Math.floor(Math.random()*trashe.length)]
+        audio.load()
+        audio.play();
+    } else {
+        audio.load()
+        audio.play();
+        plaing = true;
+    }
+*/
+
 }
 
 function trash(){
@@ -182,6 +194,7 @@ function miss(){
     
     if(misscnt < 0 || misscnt > 6) return;
     if(misscnt === 6) console.log("ripboi")
+    document.getElementById("status").innerHTML= "GAMESTATUS: Ingame; Loses: "+misscnt
     var el = document.getElementById("hang").innerText = ac[misscnt]
 } 
 

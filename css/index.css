@@ -80,6 +80,14 @@ body {
   color: #a3a3a3;
   text-shadow:0 0 10px #bdbdbd;
 }
+.playshit{
+  text-decoration: none;
+  position: absolute;
+  bottom: 1%;
+  right: 2%;
+  color: #a3a3a3;
+  text-shadow:0 0 10px #bdbdbd;
+}
 @keyframes na{
   10%{
     text-shadow:0 0 10px #c61cff,0 0 10px #d05cf7;

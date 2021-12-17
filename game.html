@@ -15,24 +15,19 @@
 <body>
 
     <script src="js/game.js"></script>
+    <a class="status"  id="status"></a>
  <!-- hangman here -->
     <div class="game.input">
-        <a class="word" id="hang">  +---+
-            |   |
-            O   |
-           /|\\\  |
-           / \\\  |
-                |
-          =========</a>
-        <a class="word" id="word"></a></br>
+        <a class="word" id="hang"></a>
+        <a class="worde" id="word"></a></br>
         <a class="word" id="used letters"></a>
-        <input type="text" value="" onKeyDown="if(event.keyCode==13) wordguess(this, event);" size="20" id="endereco">
-        <button type="button" onclick="getWord()">New word</button>
+        <input type="text" class="inpute" value="" onKeyDown="if(event.keyCode==13) wordguess(this, event);" size="20" id="endereco">
+        <button type="button" class="wrdbtn" onclick="getWord()">New word</button>
     </div>
     </div>
     <div class="footer">
         <a id="cropy" class="cropy"></a>
-        <button type="button" onclick="playsong()">Play Music</button>
+        <button type="button" class="playshit button-28" onclick="playsong()">Play Music</button>
     </div>
 </body>
 </html>
