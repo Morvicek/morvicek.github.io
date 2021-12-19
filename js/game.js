@@ -10,6 +10,12 @@ window.addEventListener("keydown", function(e) {
     }
   }, false);
 document.addEventListener('DOMContentLoaded', () => {
+    let loaded = localStorage.getItem("loaded");
+    if(!loaded){
+        localStorage.setItem("loaded", true);
+        localStorage.setItem("wins", 0);
+    }
+
     document.getElementById('cropy').innerText = `© 2019 - ${new Date().getFullYear()} ~ Morvicek`;
     document.getElementById("hang").innerText = `
     +---+
@@ -21,7 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
   =========
   `
     document.getElementById("status").innerHTML= "GAMESTATUS: Ingame; Loses: 0"
-    
+    let wins = localStorage.getItem("wins");
+    document.getElementById("letters").innerText = "Used letters: "
+    document.getElementById("wins").innerText="Total Wins: " +  wins
+    //localStorage.setItem(key, value);
     getWord()
     
 })
@@ -107,6 +116,7 @@ function getWord(){
         word += "_"
     });
     element.innerText = word
+    document.getElementById("letters").innerText = "Used letters: "
 }
 
 
@@ -145,6 +155,7 @@ function guessletter(letter){
             element.innerText = word
         }
     })
+   
     if(worde === word) {
         misscnt++;
         miss()
@@ -152,7 +163,15 @@ function guessletter(letter){
     if(currentword === word){
         document.getElementById("status").innerHTML= "GAMESTATUS: WIN; Loses: "+misscnt ? "GAMESTATUS: WIN; Loses: 0" : misscnt;
 
+        const wins = localStorage.getItem("wins");
+        localStorage.setItem("wins", Number(wins) + 1);
+
+
+        let winse = localStorage.getItem("wins");
+        document.getElementById("wins").innerText="Total Wins: " +  winse
+
     }
+    document.getElementById("letters").innerText += " "+letter + ","
 
 }
 

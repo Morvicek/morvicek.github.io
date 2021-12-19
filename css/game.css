@@ -12,7 +12,14 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
+.wins {
+    color:  #d900ff;
+    position: absolute;
+    top: 5%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    font-size: larger;
+}
 .status {
     color: purple;
     position: absolute;
@@ -30,10 +37,16 @@
 .ingame{
     color:orange;
 }
-
+.letters{
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    color:orange;
+    transform: translate(-50%, -50%);
+}
 .inpute {
     position: absolute;
-    top: 45%;
+    top: 43%;
     left: 50%;
     transform: translate(-50%, -50%);
     color:white;
@@ -44,7 +57,7 @@
 
 .wrdbtn{
     position: absolute;
-    top: 50%;
+    top: 51%;
     left: 50%;
     transform: translate(-50%, -50%);
     border: 2px solid #1A1A1A;

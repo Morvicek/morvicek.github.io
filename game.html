@@ -5,22 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:site_name" content="Morvicek">
-	<meta content="Morvicek - Programmer, Gamer" property="og:description">
+	<meta content="Morvicek - hangman" property="og:description">
     <title>Morvicek</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/game.css">
-  
+    <script src="js/snowing.js"></script>
 </head>
 <body>
 
     <script src="js/game.js"></script>
     <a class="status"  id="status"></a>
+    <a class="wins" id="wins"></a>
  <!-- hangman here -->
     <div class="game.input">
         <a class="word" id="hang"></a>
         <a class="worde" id="word"></a></br>
-        <a class="word" id="used letters"></a>
+        <a class="letters" id="letters"></a>
         <input type="text" class="inpute" value="" onKeyDown="if(event.keyCode==13) wordguess(this, event);" size="20" id="endereco">
         <button type="button" class="wrdbtn" onclick="getWord()">New word</button>
     </div>
