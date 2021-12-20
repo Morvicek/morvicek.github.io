@@ -18,14 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('cropy').innerText = `© 2019 - ${new Date().getFullYear()} ~ Morvicek`;
     document.getElementById("hang").innerText = `
-    +---+
-    |   |
++---+
+|       |
         |
         |
         |
         |
-  =========
-  `
+=========
+  `.replace(/ /g, "\xa0")
     document.getElementById("status").innerHTML= "GAMESTATUS: Ingame; Loses: 0"
     let wins = localStorage.getItem("wins");
     document.getElementById("letters").innerText = "Used letters: "
@@ -36,60 +36,60 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 const ac = [`
-  +---+
-  |   |
-      |
-      |
-      |
-      |
++---+
+|       |
+        |
+        |
+        |
+        |
 =========
 `, `
   +---+
-  |   |
-  O   |
-      |
-      |
-      |
+  |       |
+  O     |
+          |
+          |
+          |
 =========
 `, `
   +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
+  |       |
+  O     |
+  |       |
+          |
+          |
 =========
 `, `
   +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
+  |       |
+  O     |
+ /|      |
+          |
+          |
 =========
 `, `
   +---+
-  |   |
-  O   |
- /|\\\  |
-      |
-      |
+  |       |
+  O     |
+ /|\\\    |
+          |
+          |
 =========
 `, `
   +---+
-  |   |
-  O   |
- /|\\\  |
- /    |
-      |
+  |       |
+  O     |
+ /|\\\    |
+ /       |
+          |
 =========
 `, `
   +---+
-  |   |
-  O   |
- /|\\\  |
- / \\\  |
-      |
+  |       |
+  O     |
+ /|\\\    |
+ / \\\    |
+          |
 =========
 `];
 
@@ -99,17 +99,18 @@ var currentword = "";
 var splitword = "";
 var word = "";
 var misscnt = 0;
-var usedltr = "";
+var usedltr = [];
 
 function getWord(){
     currentword = "";
     splitword = "";
     word = "";
     misscnt = "";
-    usedltr = "";
+    usedltr = [];
     var element = document.getElementById("word")
-    currentword = words[Math.floor(Math.random()*words.length)];
+    currentword = words[Math.floor(Math.random()*words.length)].toLowerCase();
     splitword = currentword.split('')
+
     var count = 0;
     splitword.forEach(inte => {
         count++
@@ -128,8 +129,18 @@ function guessletter(letter){
         nw.forEach(e => guessletter(e))
         return;
     }
+    var used = false;
     var worde = word
     var count = 0;
+    letter = letter.toLowerCase()
+    
+    usedltr.forEach(x =>{
+        letter = letter.replace(/ /g, "")
+        x = x.replace(/ /g, "")
+        if(x === letter) used = true;
+    })
+    console.log(used)
+    if(used === true) {return;}
     splitword.forEach(e =>{
         count++;
         if(letter === e){
@@ -144,7 +155,7 @@ function guessletter(letter){
                 if(cnt === count) {
                     console.log(cnt + " : "+ count + " Word counted")
                     wrd += letter
-                    if(e === letter) return;
+                    
                 } else {
                     wrd += e;
                 }
@@ -171,12 +182,16 @@ function guessletter(letter){
         document.getElementById("wins").innerText="Total Wins: " +  winse
 
     }
+    
+    usedltr.push(letter)
     document.getElementById("letters").innerText += " "+letter + ","
-
+    used = false
 }
 
 function anticheat(){
     if(misscnt < 0 || misscnt > 6) window.location.href = trash(); 
+    const wins = localStorage.getItem("wins");
+    if(wins.includes(69))
 }
 
 setInterval(anticheat, 600)
@@ -204,7 +219,7 @@ function playsong(){
 }
 
 function trash(){
-    const trash = ["https://youtu.be/Vh18F_05lLw?t=76", "https://www.youtube.com/watch?v=iik25wqIuFo", "https://youtu.be/F16ZS6rM29s?t=63", "https://www.youtube.com/watch?v=-fr4roFR0Sk","https://www.youtube.com/watch?v=XfR9iY5y94s"]
+    const trash = ["https://youtu.be/Vh18F_05lLw?t=76","https://youtu.be/3QMiCBJ7yRM?list=RD3QMiCBJ7yRM", "https://www.youtube.com/watch?v=iik25wqIuFo", "https://youtu.be/F16ZS6rM29s?t=63", "https://www.youtube.com/watch?v=-fr4roFR0Sk","https://www.youtube.com/watch?v=XfR9iY5y94s"]
 
     return trash[Math.floor(Math.random()*trash.length)]
 }
@@ -214,7 +229,7 @@ function miss(){
     if(misscnt < 0 || misscnt > 6) return;
     if(misscnt === 6) console.log("ripboi")
     document.getElementById("status").innerHTML= "GAMESTATUS: Ingame; Loses: "+misscnt
-    var el = document.getElementById("hang").innerText = ac[misscnt]
+    var el = document.getElementById("hang").innerText = ac[misscnt].replace(/ /g, "\xa0")
 } 
 
 function wordguess(that, e){
