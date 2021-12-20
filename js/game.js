@@ -191,7 +191,9 @@ function guessletter(letter){
 function anticheat(){
     if(misscnt < 0 || misscnt > 6) window.location.href = trash(); 
     const wins = localStorage.getItem("wins");
-    if(wins.includes(69))
+    if(wins.includes(69)){
+        console.log("VERY FUNNY")
+    }
 }
 
 setInterval(anticheat, 600)
@@ -219,7 +221,7 @@ function playsong(){
 }
 
 function trash(){
-    const trash = ["https://youtu.be/Vh18F_05lLw?t=76","https://youtu.be/3QMiCBJ7yRM?list=RD3QMiCBJ7yRM", "https://www.youtube.com/watch?v=iik25wqIuFo", "https://youtu.be/F16ZS6rM29s?t=63", "https://www.youtube.com/watch?v=-fr4roFR0Sk","https://www.youtube.com/watch?v=XfR9iY5y94s"]
+    const trash = ["https://youtu.be/Vh18F_05lLw?t=76","https://youtu.be/L3YCihu6VYE?t=31","https://youtu.be/FBOmThMGJSA?t=2","https://youtu.be/3QMiCBJ7yRM?list=RD3QMiCBJ7yRM", "https://www.youtube.com/watch?v=iik25wqIuFo", "https://youtu.be/F16ZS6rM29s?t=63", "https://www.youtube.com/watch?v=-fr4roFR0Sk","https://www.youtube.com/watch?v=XfR9iY5y94s"]
 
     return trash[Math.floor(Math.random()*trash.length)]
 }

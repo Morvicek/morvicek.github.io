@@ -122,3 +122,31 @@
   box-shadow: none;
   transform: translateY(0);
 }
+@media only screen and (max-height: 800px) {
+    .status{
+        top:13%;
+    }
+    .word{
+        top:33%
+    }
+    .worde{
+        top:50%;
+    }
+    .inpute{
+        top:63%;
+    }
+    .wrdbtn{
+        top:71%;
+    }
+    .letters{
+        top:56%;
+    }
+    .button-28 {
+        padding: 14px 60px;
+        border-radius: 2px;
+        font-size: 16px;
+        line-height: 20px;
+        min-width: 10;
+        width: 1%;
+    }
+}
