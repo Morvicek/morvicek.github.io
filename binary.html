@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:site_name" content="Morvicek">
+	<meta content="Morvicek - Programmer, Gamer" property="og:description">
+    <title>Morvicek</title>
+    
+
+    <script >
+        function toText(str) {
+
+        var newBin = str.split(" ");
+        var binCode = [];
+
+        for (i = 0; i < newBin.length; i++) {
+            binCode.push(String.fromCharCode(parseInt(newBin[i], 2)));
+        }
+        return binCode.join("");
+        }
+        function toBinary(str){
+            var input = str
+            var output = "";
+            
+            for (var i = 0; i < input.length; i++){
+                output += input[i].charCodeAt(0).toString(2) + " ";
+            }
+            return output;
+        }
+        function checkString(str) {
+            let isBinary = false;
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] == "0" || str[i] == "1") {
+                isBinary = true;
+                } else {
+                isBinary = false;
+                }
+            }
+            return isBinary;
+        }
+
+    </script>
+    <style>
+        body{
+            background-color: black;
+        }
+        #textto {
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 25%;
+            transform: translate(-50%, -50%);
+            max-width: 300px;
+            max-height: 1000px;
+        }
+        #binaryto {
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 75%;
+            transform: translate(-50%, -50%);
+        }
+        
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="textto">
+        <h1>Text to binary</h1>
+        <textarea rows="6" cols="60" id="textimp" type="text"></textarea><a id="copy">Copy?</a><br>
+        
+        <textarea rows="14" cols="60" id="binaryout"></textarea>
+    </div>  
+    <div id="binaryto">
+        <h1>Binary to text</h1>
+        <textarea rows="6" cols="60" id="binaryimp" type="text"></textarea><br>
+        <textarea rows="14" cols="60" id="textout"></textarea>
+    </div>
+    <script>
+
+        $( "#textimp" ).keyup(function(event) {
+            var txt = $( "#textimp" ).val();
+            var x= txt.split(" ")
+            var t = x.join(" ")
+            console.log(t)
+            
+            $('#binaryout').text(toBinary(t)); 
+        });
+        $( "#binaryimp" ).keyup(function(event) {
+            var txt = $( "#binaryimp" ).val();
+            var x= txt.split(" ")
+            var t = x.join(" ")
+            //console.log(txt)
+            console.log(t)
+            console.log(checkString(t))
+            if(checkString(t.slice(0, -1)) === false) return;
+            
+            $('#textout').text(toText(t)); 
+        });
+        function copyToClipboard(text) {
+    var sampleTextarea = document.createElement("textarea");
+    document.body.appendChild(sampleTextarea);
+    sampleTextarea.value = text; //save main text in it
+    sampleTextarea.select(); //select textarea contenrs
+    document.execCommand("copy");
+    document.body.removeChild(sampleTextarea);
+}
+        $( "#copy" ).click(function() {
+            copyToClipboard($( "#binaryout" ).text())
+        });
+    </script>
+</body>
+</html>
